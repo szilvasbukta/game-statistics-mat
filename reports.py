@@ -73,3 +73,18 @@ def sort_abc(file_name):
                         game_titles.insert(x, line[0])
                         break
         return game_titles
+
+
+def get_genres(file_name):
+    game_genres = []
+    with open(file_name, 'r') as opened_file:
+        for line in opened_file:
+            line = line.split("\t")
+            if (len(game_genres) == 0 or (game_genres[-1]).lower() < (line[3]).lower()) and line[3] not in game_genres:
+                game_genres.append(line[3])
+            elif line[3] not in game_genres:
+                for x, title in enumerate(game_genres):
+                    if (line[3]).lower() < title.lower():
+                        game_genres.insert(x, line[3])
+                        break
+        return game_genres
