@@ -42,3 +42,19 @@ def count_by_genre(file_name, genre):
             if line[3] == genre:
                 number_of_games += 1
         return number_of_games
+
+
+def get_line_number_by_title(file_name, title):
+    number_of_line = 0
+    check = 0
+    with open(file_name, 'r') as opened_file:
+        for line in opened_file:
+            line = line.split("\t")
+            number_of_line += 1
+            if line[0] == title:
+                check = 1
+                break
+        if check == 1:
+            return number_of_line
+        else:
+            raise ValueError
