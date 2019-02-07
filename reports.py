@@ -91,7 +91,7 @@ def get_genres(file_name):
 
 
 def when_was_top_sold_fps(file_name):
-    total_copies_sold = [0, 0] #[year, sold copies]
+    total_copies_sold = [0, 0]  # [year, sold copies]
     check = 0
     with open(file_name, 'r') as opened_file:
         for line in opened_file:
