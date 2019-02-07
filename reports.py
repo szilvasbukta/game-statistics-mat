@@ -58,3 +58,18 @@ def get_line_number_by_title(file_name, title):
             return number_of_line
         else:
             raise ValueError
+
+
+def sort_abc(file_name):
+    game_titles = []
+    with open(file_name, 'r') as opened_file:
+        for line in opened_file:
+            line = line.split("\t")
+            if len(game_titles) == 0 or (game_titles[-1]).lower() < (line[0]).lower():
+                game_titles.append(line[0])
+            else:
+                for x, title in enumerate(game_titles):
+                    if (line[0]).lower() < title.lower():
+                        game_titles.insert(x, line[0])
+                        break
+        return game_titles
