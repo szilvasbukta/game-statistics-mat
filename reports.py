@@ -32,3 +32,13 @@ def get_latest(file_name):
                 basic_year[1] = int(line[2])
                 basic_year[0] = line[0]
         return basic_year[0]
+
+
+def count_by_genre(file_name, genre):
+    number_of_games = 0
+    with open(file_name, 'r') as opened_file:
+        for line in opened_file:
+            line = line.split("\t")
+            if line[3] == genre:
+                number_of_games += 1
+        return number_of_games
